@@ -19,9 +19,9 @@
 
 class Solution(object):
     def twoSum(self, nums, target):
-        num_map = {}  # 创建一个哈希表
-        for i, num in enumerate(nums):  # 遍历数组
-            complement = target - num   # 计算补数
-            if complement in num_map:  # 如果补数已经存在于哈希表中
+        num_map = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in num_map:
                 return [num_map[complement], i]
-            num_map[num] = i  # 否则，存入哈希表
+            num_map[num] = i
