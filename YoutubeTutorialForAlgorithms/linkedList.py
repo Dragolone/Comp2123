@@ -114,9 +114,32 @@ class LinkedList:
             # If we deleted the last node, update `tail`
             if current.nextNode is None:
                 self.tail = current
-    def remove_key(self, key):
-        current = self.head
 
+    def remove_key(self, key):
+        """
+        Removes the first node that contains the given key.
+        :param key: The value to remove from the linked list.
+        :raises KeyError: If the key is not found.
+        """
+        # Case 1: If the key is in the head node
+        if self.head and self.head.data == key:
+            self.head = self.head.nextNode  # Move head to the next node
+            if self.head is None:  # If the list becomes empty, update tail
+                self.tail = None
+            return
+
+        # Case 2: Traverse the list to find the key
+        current = self.head
+        while current is not None and current.nextNode is not None:
+            if current.nextNode.data == key:
+                current.nextNode = current.nextNode.nextNode  # Bypass the node
+                if current.nextNode is None:  # If last node was removed, update tail
+                    self.tail = current
+                return
+            current = current.nextNode  # Move to the next node
+
+        # Case 3: Key not found
+        raise KeyError("Key not found")
 
 
 """
@@ -140,7 +163,7 @@ l1.add(1)
 l1.add(2)
 l1.add(3)
 l1.insert(200, 3)
-l1.remove(2)
+l1.remove_key(200)
 
 print(l1.__repr__())
 print(l1.size())
