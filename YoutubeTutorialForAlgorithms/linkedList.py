@@ -165,5 +165,5 @@ l1.add(3)
 l1.insert(200, 3)
 l1.remove_key(200)
 
-print(l1.__repr__())
-print(l1.size())
+# print(l1.__repr__())
+# print(l1.size())

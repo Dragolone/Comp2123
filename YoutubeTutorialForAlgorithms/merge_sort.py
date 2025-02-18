@@ -7,6 +7,7 @@ def merge_sort(arr):
     Combine: Merge the sorted sub-arrays created in previous steps
     :param arr:
     :return:
+    Takes O(n log n) time complexity
     """
     if len(arr) <= 1:
         return arr
@@ -22,6 +23,7 @@ def split(arr):
     Divide the unsorted array into two sub-arrays
     :param arr:
     :return: left_half, right_half
+    Takes overall O(log(n)) time complexity
     """
     left_half = arr[:len(arr) // 2]
     right_half = arr[len(arr) // 2:]
@@ -33,6 +35,7 @@ def merge(left, right):
     :param left:
     :param right:
     :return: Returns a new merged array
+    Takes overall O(n) time complexity
     """
     result = []
     i = j = 0
