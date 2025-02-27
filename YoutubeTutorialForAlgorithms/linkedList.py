@@ -60,6 +60,20 @@ class LinkedList:
             current = current.nextNode
         return '->'.join(nodes)
 
+    def node_at_index(self, index):
+        if index < 0 or index >= self.size():
+            raise IndexError("Index out of range")
+        if index == 0:
+            return self.head
+
+        current = self.head
+        count = 0
+        while current is not None:
+            count += 1
+            current = current.nextNode
+            if count == index:
+                return current
+
     def search(self, key):
         """
         Searches for the first node whose data is equal to the given key.
@@ -165,5 +179,8 @@ l1.add(3)
 l1.insert(200, 3)
 l1.remove_key(200)
 
-# print(l1.__repr__())
+print(l1.__repr__())
+print()
+print(l1.node_at_index(0))
+
 # print(l1.size())
